@@ -44,7 +44,7 @@ export class SlotAndFillManager {
 
     notify = (slotId) => {
         console.warn(`SlotAndFillManager: Notify subscribers for slotId ${slotId}`);
-        console.warn(`SlotAndFillManager: Current amount of subscribers ${this.subscribers.length}`);
+        console.warn(`SlotAndFillManager: Current amount of subscribers is ${this.subscribers.length}`);
 
         this.subscribers.forEach((subscriber, index) => {
             if (subscriber.slotId !== slotId) {

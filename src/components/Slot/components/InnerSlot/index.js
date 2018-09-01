@@ -19,7 +19,7 @@ export class InnerSlot extends React.Component {
         super(props);
 
         props.context.subscribe(props.slotId, slotIndex => {
-            console.warn(`Slot: calling suscribe for slotIndex ${slotIndex}, where slotId is ${props.slotId}`);
+            console.warn(`Slot: Calling suscribe for slotIndex ${slotIndex}, where slotId is ${props.slotId}`);
 
             this.slotIndex = slotIndex;
             this.forceUpdate();
