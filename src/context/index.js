@@ -21,9 +21,7 @@ export class SlotAndFillManager {
         this._notify(slotId);
     };
 
-    getFillForSlot = (slotId, subscriptionCallback) => {
-        this.subscribe(slotId, subscriptionCallback);
-
+    getFillForSlot = (slotId) => {
         const fillById = this.slotsAndFills.get(slotId);
 
         if (!fillById) {
@@ -46,7 +44,7 @@ export class SlotAndFillManager {
 
     _notify = (slotId) => {
         console.warn(`SlotAndFillManager: Notify subscribers for slotId ${slotId}`);
-        console.warn(`SlotAndFillManager: Current subscribers ${this.subscribers.length}`);
+        console.warn(`SlotAndFillManager: Current amount of subscribers ${this.subscribers.length}`);
 
         this.subscribers.forEach((subscriber, index) => {
             if (subscriber.slotId !== slotId) {

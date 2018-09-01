@@ -15,6 +15,17 @@ export class InnerSlot extends React.Component {
         }).isRequired
     };
 
+    constructor(props) {
+        super(props);
+
+        props.context.subscribe(props.slotId, slotIndex => {
+            console.warn(`Slot: calling suscribe for slotIndex ${slotIndex}, where slotId is ${props.slotId}`);
+
+            this.slotIndex = slotIndex;
+            this.forceUpdate();
+        });
+    }
+
     componentWillUnmount() {
         const { slotId, context } = this.props;
         
@@ -41,12 +52,7 @@ export class InnerSlot extends React.Component {
             return false;
         }
 
-        const renderCallback = context.getFillForSlot(slotId, slotIndex => {
-            console.warn(`Slot: calling suscribe for slotIndex ${slotIndex}, where slotId is ${slotId}`);
-
-            this.slotIndex = slotIndex;
-            this.forceUpdate();
-        });
+        const renderCallback = context.getFillForSlot(slotId);
 
         return renderCallback();
     }
