@@ -2,7 +2,7 @@
   "name": "react-slot-and-fill",
   "version": "1.0.0",
   "private": false,
-  "description": "Library Boilerplate to easy bootstrap project",
+  "description": "React Slot and Fill implementation made with React.createContext API",
   "main": "lib/react-slot-and-fill.cjs.js",
   "module": "lib/react-slot-and-fill.esm.js",
   "browser": "lib/react-slot-and-fill.umd.js",
