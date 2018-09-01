@@ -10,6 +10,10 @@ export class SlotAndFillProvider extends React.Component {
         children: PropTypes.any.isRequired
     };
 
+    static defaultProps = {
+        children: []
+    };
+
     state = {
         manager: new SlotAndFillManager()
     };
@@ -17,7 +21,7 @@ export class SlotAndFillProvider extends React.Component {
     render() {
         return (
             <SlotAndFillContext.Provider value={this.state.manager}>
-                {React.Children.only(this.props.children)}
+                {this.props.children}
             </SlotAndFillContext.Provider>
         );
     }

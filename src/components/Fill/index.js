@@ -11,6 +11,10 @@ export class Fill extends React.Component {
         children: PropTypes.any.isRequired
     };
 
+    static defaultProps = {
+        children: []
+    };
+
     render() {
         return (
             <SlotAndFillContext.Consumer>
@@ -20,8 +24,9 @@ export class Fill extends React.Component {
     }
 
     setFillForSlot = (context) => {
-        if (!context.hasOwnProperty("setFillForSlot")) {
+        if (!context || !context.hasOwnProperty("setFillForSlot")) {
             console.warn(`Fill: context is null or undefined. You need to wrap your App with <SlotAndFillProvider>.`);
+            return false;
         } else {
             const { id, children } = this.props;
 
@@ -35,7 +40,7 @@ export class Fill extends React.Component {
                 return false;
             }
 
-            context.setFillForSlot(this.props.id, () => this.props.children);
+            context.setFillForSlot(id, () => children);
         }
 
         return false;

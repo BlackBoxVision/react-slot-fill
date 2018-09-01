@@ -45,7 +45,7 @@ export class InnerSlot extends React.Component {
     render() {
         const { slotId, context } = this.props;
 
-        if (!context.hasOwnProperty("getFillForSlot")) {
+        if (!context || !context.hasOwnProperty("getFillForSlot")) {
             console.warn(`Slot: context is null or undefined. You need to wrap your App with <SlotAndFillProvider>.`);
             return false;
         }
