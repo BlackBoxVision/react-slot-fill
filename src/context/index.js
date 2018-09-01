@@ -31,14 +31,14 @@ export class SlotAndFillManager {
         this.subscribers.push({ slotId, callback });
     };
 
-    unsubscribe = (slotId) => {
-        this.subscribers = this.subscribers.filter(subscriber => subscriber.slotId === slotId);
+    unsubscribe = (slotId, slotIndex) => {
+        this.subscribers = this.subscribers.filter((subscriber, index) => subscriber.slotId === slotId && index === slotIndex);
     };
 
     _notify = (slotId) => {
-        this.subscribers.forEach(subscriber => {
+        this.subscribers.forEach((subscriber, index) => {
             if (subscriber.slotId === slotId) {
-                subscriber.callback(slotId);
+                subscriber.callback(index);
             }
         });
     };

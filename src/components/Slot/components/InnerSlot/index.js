@@ -23,7 +23,10 @@ export class InnerSlot extends React.Component {
             return;
         }
 
-        context.subscribe(slotId, () => this.forceUpdate());
+        context.subscribe(slotId, (slotIndex) => {
+            this.slotIndex = slotIndex;
+            this.forceUpdate();
+        });
     }
 
     componentWillUnmount() {
@@ -34,7 +37,9 @@ export class InnerSlot extends React.Component {
             return;
         }
 
-        context.unsubscribe(slotId);
+        if (this.slotIndex) {
+            context.unsubscribe(slotId, this.slotIndex);
+        }
     }
 
     render() {
