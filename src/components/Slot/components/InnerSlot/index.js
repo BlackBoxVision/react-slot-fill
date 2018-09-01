@@ -15,22 +15,6 @@ export class InnerSlot extends React.Component {
         }).isRequired
     };
 
-    componentDidMount() {
-        const { slotId, context } = this.props;
-
-        if (!context) {
-            console.warn(`Slot: context is null or undefined. You need to wrap your App with <SlotAndFillProvider>.`);
-            return;
-        }
-
-        context.subscribe(slotId, (slotIndex) => {
-            console.warn(`Slot: calling suscribe for slotIndex ${slotIndex}, where slotId is ${slotId}`);
-
-            this.slotIndex = slotIndex;
-            this.forceUpdate();
-        });
-    }
-
     componentWillUnmount() {
         const { slotId, context } = this.props;
         
@@ -57,12 +41,12 @@ export class InnerSlot extends React.Component {
             return false;
         }
 
-        const renderCallback = context.getFillForSlot(slotId);
+        const renderCallback = context.getFillForSlot(slotId, slotIndex => {
+            console.warn(`Slot: calling suscribe for slotIndex ${slotIndex}, where slotId is ${slotId}`);
 
-        if (!renderCallback) {
-            console.warn(`Slot: There's no Fill for the following slot id: ${slotId}`);
-            return false;
-        }
+            this.slotIndex = slotIndex;
+            this.forceUpdate();
+        });
 
         return renderCallback();
     }
