@@ -1,0 +1,55 @@
+{
+  "name": "react-slot-and-fill",
+  "version": "1.0.0",
+  "private": false,
+  "description": "Library Boilerplate to easy bootstrap project",
+  "main": "lib/react-slot-and-fill.cjs.js",
+  "module": "lib/react-slot-and-fill.esm.js",
+  "browser": "lib/react-slot-and-fill.umd.js",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "clean": "rimraf ./lib",
+    "build": "cross-env NODE_ENV=production npm run clean && rollup -c",
+    "publish": "npm run build && npm publish",
+    "coverage": "cross-env NODE_ENV=testing npx babel-node ./node_modules/.bin/isparta cover _mocha",
+    "test": "cross-env NODE_ENV=testing mocha ./test --require @babel/register",
+    "prettier": "./node_modules/.bin/prettier --tab-width 4 --print-width 120 --single-quote --write './**/**/**/*.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BlackBoxVision/react-slot-and-fill.git"
+  },
+  "author": "Jonatan E. Salas (Kid)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BlackBoxVision/react-slot-and-fill/issues"
+  },
+  "homepage": "https://github.com/BlackBoxVision/react-slot-and-fill#readme",
+  "files": [
+    "lib"
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/node": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "chai": "^4.1.2",
+    "cross-env": "^5.2.0",
+    "isparta": "^4.1.0",
+    "mocha": "^5.2.0",
+    "prettier": "^1.14.2",
+    "rimraf": "^2.6.2",
+    "rollup": "^0.65.0",
+    "rollup-plugin-analyzer": "^2.1.0",
+    "rollup-plugin-babel": "^4.0.1",
+    "rollup-plugin-commonjs": "^9.1.6",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-replace": "^2.0.0",
+    "rollup-plugin-uglify": "^4.0.0"
+  }
+}
