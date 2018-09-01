@@ -10,6 +10,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
+    "link": "npm link",
     "clean": "rimraf ./lib",
     "build": "cross-env NODE_ENV=production npm run clean && rollup -c",
     "publish": "npm run build && npm publish",
@@ -37,6 +38,7 @@
     "@babel/plugin-proposal-class-properties": "^7.0.0",
     "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.0.0",
     "chai": "^4.1.2",
     "cross-env": "^5.2.0",

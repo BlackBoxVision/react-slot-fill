@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import { SlotAndFillContext, SlotAndFillManager } from '../../context';
 
-export class SlotAndFillProvider extends React.Component {
+export class Provider extends React.Component {
     static displayName = "SlotAndFillProvider";
 
     static propTypes = {
