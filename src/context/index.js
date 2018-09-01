@@ -18,7 +18,7 @@ export class SlotAndFillManager {
         }
 
         this.slotsAndFills.set(slotId, renderCallback);
-        this._notify(slotId);
+        this.notify(slotId);
     };
 
     getFillForSlot = (slotId) => {
@@ -42,7 +42,7 @@ export class SlotAndFillManager {
         this.subscribers = this.subscribers.filter((subscriber, index) => subscriber.slotId === slotId && index === slotIndex);
     };
 
-    _notify = (slotId) => {
+    notify = (slotId) => {
         console.warn(`SlotAndFillManager: Notify subscribers for slotId ${slotId}`);
         console.warn(`SlotAndFillManager: Current amount of subscribers ${this.subscribers.length}`);
 
