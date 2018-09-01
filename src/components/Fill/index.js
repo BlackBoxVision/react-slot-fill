@@ -4,29 +4,23 @@ import PropTypes from "prop-types";
 import { SlotAndFillContext } from '../../context';
 import { InnerFill } from './components/InnerFill';
 
-export class Fill extends React.Component {
-    static displayName = "Fill";
+export const Fill = (props) => (
+    <SlotAndFillContext.Consumer>
+        {(context) => (
+            <InnerFill slotId={props.id} context={context}>
+                {props.children}
+            </InnerFill>
+        )}
+    </SlotAndFillContext.Consumer>
+);
 
-    static propTypes = {
-        id: PropTypes.string.isRequired,
-        children: PropTypes.any.isRequired
-    };
+Fill.displayName = "Fill";
 
-    static defaultProps = {
-        children: []
-    };
+Fill.propTypes = {
+    id: PropTypes.string.isRequired,
+    children: PropTypes.any.isRequired
+};
 
-    render() {
-        const { id, children } = this.props;
-
-        return (
-            <SlotAndFillContext.Consumer>
-                {(context) => (
-                    <InnerFill slotId={id} context={context}>
-                        {children}
-                    </InnerFill>
-                )}
-            </SlotAndFillContext.Consumer>
-        );
-    }
-}
+Fill.defaultProps = {
+    children: []
+};
