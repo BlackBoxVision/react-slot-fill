@@ -16,7 +16,7 @@ export default class Slot extends React.Component {
 
         return (
             <SlotAndFillContext.Consumer>
-                {ctx => <InnerSlot id={id} ctx={ctx}/>}
+                {context => <InnerSlot slotId={id} context={context}/>}
             </SlotAndFillContext.Consumer>
         );
     }
