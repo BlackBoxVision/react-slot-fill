@@ -54,6 +54,7 @@ export class InnerSlot extends React.Component {
 
         if (!renderCallback) {
             console.warn(`Slot: There's no Fill for the following slot id: ${slotId}`);
+            return false;
         }
 
         return renderCallback();
