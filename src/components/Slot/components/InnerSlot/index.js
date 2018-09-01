@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export default class InnerSlot extends React.Component {
+export class InnerSlot extends React.Component {
     static displayName = "InnerSlot";
 
     static propTypes = {

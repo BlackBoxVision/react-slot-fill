@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import { SlotAndFillContext } from '../../context';
 
-export default class Fill extends React.Component {
+export class Fill extends React.Component {
     static displayName = "Fill";
 
     static propTypes = {
@@ -24,7 +24,7 @@ export default class Fill extends React.Component {
             console.warn(`Fill: context is null or undefined. You need to wrap your App with <SlotAndFillProvider>.`);
         } else {
             const { id, children } = this.props;
-            
+
             if (!id) {
                 console.warn(`Fill: id is null or undefined.`);
                 return false;

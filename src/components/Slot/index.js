@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import { SlotAndFillContext } from '../../context';
-import InnerSlot from './components/InnerSlot';
+import { InnerSlot } from './components/InnerSlot';
 
-export default class Slot extends React.Component {
+export class Slot extends React.Component {
     static displayName = "Slot";
 
     static propTypes = {
