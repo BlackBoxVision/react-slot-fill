@@ -6,7 +6,7 @@ import { InnerSlot } from './components/InnerSlot';
 
 export const Slot = (props) => (
     <SlotAndFillContext.Consumer>
-        {context => <InnerSlot slotId={props.id} context={context}/>}
+        {(context) => <InnerSlot slotId={props.id} context={context}/>}
     </SlotAndFillContext.Consumer>
 );
 
