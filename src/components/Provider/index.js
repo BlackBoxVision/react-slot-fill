@@ -7,7 +7,7 @@ export default class SlotAndFillProvider extends React.Component {
     static displayName = "SlotAndFillProvider";
 
     static propTypes = {
-        children: PropTypes.children.any
+        children: PropTypes.any.isRequired
     };
 
     state = {
