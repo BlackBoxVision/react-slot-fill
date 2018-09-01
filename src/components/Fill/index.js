@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import { SlotAndFillContext } from '../../context';
+import { InnerFill } from './components/InnerFill';
 
 export class Fill extends React.Component {
     static displayName = "Fill";
@@ -16,33 +17,16 @@ export class Fill extends React.Component {
     };
 
     render() {
+        const { id, children } = this.props;
+
         return (
             <SlotAndFillContext.Consumer>
-                {this.setFillForSlot}
+                {(context) => (
+                    <InnerFill slotId={id} context={context}>
+                        {children}
+                    </InnerFill>
+                )}
             </SlotAndFillContext.Consumer>
         );
     }
-
-    setFillForSlot = (context) => {
-        if (!context || !context.hasOwnProperty("setFillForSlot")) {
-            console.warn(`Fill: context is null or undefined. You need to wrap your App with <SlotAndFillProvider>.`);
-            return false;
-        } else {
-            const { id, children } = this.props;
-
-            if (!id) {
-                console.warn(`Fill: id is null or undefined.`);
-                return false;
-            }
-
-            if (Array.isArray(children) && children.length === 0) {
-                console.warn(`Fill: children array is empty.`);
-                return false;
-            }
-
-            context.setFillForSlot(id, () => children);
-        }
-
-        return false;
-    };
 }

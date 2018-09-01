@@ -7,7 +7,7 @@ export class InnerSlot extends React.Component {
     static propTypes = {
         slotId: PropTypes.string.isRequired,
         context: PropTypes.shape({
-            _notify: PropTypes.func,
+            notify: PropTypes.func,
             subscribe: PropTypes.func.isRequired,
             unsubscribe: PropTypes.func.isRequired,
             setFillForSlot: PropTypes.func.isRequired,
