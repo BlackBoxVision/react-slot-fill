@@ -10,7 +10,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
-    "link": "npm link",
+    "link": "npm run build && npm link",
     "clean": "rimraf ./lib",
     "build": "cross-env NODE_ENV=production npm run clean && rollup -c",
     "publish": "npm run build && npm publish",

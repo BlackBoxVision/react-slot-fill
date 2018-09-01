@@ -24,6 +24,8 @@ export class InnerSlot extends React.Component {
         }
 
         context.subscribe(slotId, (slotIndex) => {
+            console.warn(`Slot: calling suscribe for slotIndex ${slotIndex}, where slotId is ${slotId}`);
+
             this.slotIndex = slotIndex;
             this.forceUpdate();
         });
@@ -55,7 +57,7 @@ export class InnerSlot extends React.Component {
             return false;
         }
 
-        const renderCallback = context.getFillForSlot(id);
+        const renderCallback = context.getFillForSlot(slotId);
 
         if (!renderCallback) {
             console.warn(`Slot: There's no Fill for the following slot id: ${slotId}`);

@@ -42,7 +42,7 @@ export default {
                 beautify: false
             },
             compress: {
-                drop_console: true,
+                drop_console: false,
                 dead_code: true,
                 if_return: true,
                 conditionals: true,

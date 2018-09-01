@@ -5,10 +5,10 @@ export class SlotAndFillManager {
     subscribers = [];
 
     setFillForSlot = (slotId, renderCallback = () => false) => {
-        const fillForSlot = this.getFillForSlot(slotId);
+        const fillForSlot = this.slotsAndFills.get(slotId);
 
         if (fillForSlot) {
-            console.warn(`SlotAndFillManager: You've already registered a Fill for the following slotId: ${id}`);
+            console.warn(`SlotAndFillManager: You've already registered a Fill for the following slotId: ${slotId}`);
             return;
         }
 
@@ -20,7 +20,7 @@ export class SlotAndFillManager {
         const fillById = this.slotsAndFills.get(slotId);
 
         if (!fillById) {
-            console.warn(`SlotAndFillManager: There's no Fill registered for the following slotId: ${id}`);
+            console.warn(`SlotAndFillManager: There's no Fill registered for the following slotId: ${slotId}`);
             return renderCallback;
         }
 
