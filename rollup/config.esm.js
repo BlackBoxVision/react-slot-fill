@@ -13,7 +13,7 @@ export default {
         file: pkg.module,
         format: 'es'
     },
-    external: ["react", "prop-types"],
+    external: pkg.external,
     plugins: [
         nodeResolve({
             jsnext: true,

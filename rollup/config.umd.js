@@ -11,15 +11,12 @@ export default {
     input: 'src/index.js',
     output: {
         sourcemap: true,
-        name: 'ReactSlotAndFill',
+        name: pkg.umd.name,
         file: pkg.browser,
         format: 'umd',
-        globals: {
-            "react": "React",
-            "prop-types": "PropTypes"
-        }
+        globals: pkg.umd.globals
     },
-    external: ["react", "prop-types"],
+    external: pkg.external,
     plugins: [
         nodeResolve({
             jsnext: true,
