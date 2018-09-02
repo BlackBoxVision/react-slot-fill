@@ -5,12 +5,7 @@ module.exports = (api) => {
     
     return {
         presets: [
-            [
-                "@babel/preset-env",
-                {
-                    "modules": process.env.NODE_ENV === "production"
-                }
-            ],
+            "@babel/preset-env",
             "@babel/preset-react"
         ],
         plugins: [
