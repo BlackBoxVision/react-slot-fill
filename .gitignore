@@ -1,4 +1,4 @@
-node_modules
-lib
+pkg
 coverage
-examples/basic-usage/node_modules
+node_modules
+examples/**/node_modules

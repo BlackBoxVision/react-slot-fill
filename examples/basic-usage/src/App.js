@@ -1,26 +1,21 @@
-import React from "react"; 
-
-import SF from 'react-slot-and-fill';
+import { Fill, Provider, Slot } from '@blackbox-vision/react-slot-fill';
+import React from 'react';
 
 export default class App extends React.Component {
-    render() {
-        return (
-            <div className="container">
-                <SF.Provider>
-                    <SF.Slot id="red-box" />
-                    <SF.Fill id="red-box">
-                        <div className="container with-dimensions red">
-                            Red Box
-                        </div>
-                    </SF.Fill>
-                    <SF.Fill id="green-box">
-                        <div className="container with-dimensions green">
-                            Green Box
-                        </div>
-                    </SF.Fill>
-                    <SF.Slot id="green-box" />
-                </SF.Provider>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div className="container">
+        <Provider>
+          <Slot slotId="red-box" />
+          <Fill slotId="red-box">
+            <div className="container with-dimensions red">Red Box</div>
+          </Fill>
+          <Fill slotId="green-box">
+            <div className="container with-dimensions green">Green Box</div>
+          </Fill>
+          <Slot slotId="green-box" />
+        </Provider>
+      </div>
+    );
+  }
 }
