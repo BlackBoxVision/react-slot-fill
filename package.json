@@ -11,7 +11,7 @@
     "publish": "pack publish",
     "build": "npm run clean && pack build",
     "test": "jest --passWithNoTests -- -u",
-    "storybook": "start-storybook -p 6007",
+    "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
   "@pika/pack": {
@@ -72,6 +72,9 @@
     "url": "https://github.com/BlackBoxVision/react-slot-and-fill/issues"
   },
   "homepage": "https://github.com/BlackBoxVision/react-slot-and-fill#readme",
+  "peerDependencies": {
+    "react": "^16.3.1"
+  },
   "devDependencies": {
     "@babel/core": "^7.3.4",
     "@babel/plugin-proposal-class-properties": "^7.3.4",
@@ -108,7 +111,7 @@
     "lint-staged": "^8.1.5",
     "mocha": "^5.2.0",
     "prettier": "^1.14.2",
-    "react": "^16.8.4",
+    "react": "^16.3.1",
     "rimraf": "^2.6.2"
   },
   "husky": {

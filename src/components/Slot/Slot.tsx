@@ -1,21 +1,20 @@
 import React from 'react';
-import { SlotFillContext } from '../../context';
+import { SlotFillContextProps, withContext } from '../../context';
 
 export interface SlotProps {
   name: string;
+  ctx: SlotFillContextProps;
 }
 
 class Slot extends React.Component<SlotProps> {
-  static contextType = SlotFillContext;
-
   static displayName = 'Slot';
 
   slotIndex = null;
 
-  constructor(props, context) {
-    super(props, context);
+  constructor(props) {
+    super(props);
 
-    context.subscribe(props.name, slotIndex => {
+    props.ctx.subscribe(props.name, slotIndex => {
       console.warn(
         `Slot: Calling suscribe for slotIndex ${slotIndex}, where name is ${
           props.name
@@ -30,7 +29,7 @@ class Slot extends React.Component<SlotProps> {
   componentWillUnmount() {
     const { name } = this.props;
 
-    if (!this.context) {
+    if (!this.props.ctx) {
       console.warn(
         `Slot: context is null or undefined. You need to wrap your App with <SlotAndFillProvider>.`
       );
@@ -38,12 +37,12 @@ class Slot extends React.Component<SlotProps> {
     }
 
     if (this.slotIndex) {
-      this.context.unsubscribe(name, this.slotIndex);
+      this.props.ctx.unsubscribe(name, this.slotIndex);
     }
   }
 
   render() {
-    if (!this.context || !this.context.hasOwnProperty('getFillForSlot')) {
+    if (!this.props.ctx || !this.props.ctx.hasOwnProperty('getFillForSlot')) {
       console.warn(
         `Slot: context is null or undefined. You need to wrap your App with <SlotAndFillProvider>.`
       );
@@ -55,10 +54,10 @@ class Slot extends React.Component<SlotProps> {
       return false;
     }
 
-    const renderCallback = this.context.getFillForSlot(this.props.name);
+    const renderCallback = this.props.ctx.getFillForSlot(this.props.name);
 
     return renderCallback();
   }
 }
 
-export default Slot;
+export default withContext(Slot);

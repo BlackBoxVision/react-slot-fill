@@ -72,3 +72,25 @@ export class SlotFillManager {
 }
 
 export const SlotFillContext = React.createContext(null);
+
+export const withContext = Component => {
+  const WrappedComponent = props => (
+    <SlotFillContext.Consumer>
+      {ctx => <Component {...props} ctx={ctx} />}
+    </SlotFillContext.Consumer>
+  );
+
+  WrappedComponent.displayName = Component.displayName || Component.name;
+
+  return WrappedComponent;
+};
+
+export interface SlotFillContextProps {
+  slotsAndFills: Map<any, any>;
+  suscribers: Array<any>;
+  setFillForSlot: Function;
+  getFillForSlot: Function;
+  unsubscribe: Function;
+  subscribe: Function;
+  notify: Function;
+}

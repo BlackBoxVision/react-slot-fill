@@ -1,19 +1,18 @@
 import React from 'react';
-import { SlotFillContext } from '../../context';
+import { SlotFillContextProps, withContext } from '../../context';
 
 export interface FillProps {
   name: string;
+  ctx: SlotFillContextProps;
 }
 
 class Fill extends React.Component<FillProps> {
-  static contextType = SlotFillContext;
-
   static displayName = 'Fill';
 
-  constructor(props, context) {
-    super(props, context);
+  constructor(props) {
+    super(props);
 
-    if (!context || !context.hasOwnProperty('setFillForSlot')) {
+    if (!props.ctx || !props.ctx.hasOwnProperty('setFillForSlot')) {
       console.warn(
         `Fill: context is null or undefined. You need to wrap your App with <SlotAndFillProvider>.`
       );
@@ -29,7 +28,7 @@ class Fill extends React.Component<FillProps> {
         return;
       }
 
-      context.setFillForSlot(props.name, () => props.children);
+      props.ctx.setFillForSlot(props.name, () => props.children);
     }
   }
 
@@ -38,4 +37,4 @@ class Fill extends React.Component<FillProps> {
   }
 }
 
-export default Fill;
+export default withContext(Fill);
