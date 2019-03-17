@@ -24,32 +24,34 @@ If you need to render a component from somepart of the DOM tree, but it needs to
 
 This library is very similar to [`react-slot-fill`](https://github.com/camwest/react-slot-fill), but we solve two particular issues:
 
-- Support for React.createContext, this library is intended to use with React >= 16.3.1.
-- If a Fill is declared after a Slot, it can render properly, which [`react-slot-fill`](https://github.com/camwest/react-slot-fill) doesn't support.
+- Support for `React.createContext`, this library is intended to use with React >= 16.3.1.
+- If a `Fill` is declared after a `Slot`, it can render properly, which [`react-slot-fill`](https://github.com/camwest/react-slot-fill) doesn't support.
 
 ## Usage
 
 The usage is really simple:
 
-```
+```javascript
 // Toolbar.js
 import React from 'react';
 import { Slot, Fill } from '@blackbox-vision/react-slot-fill';
 
-const Toolbar = (props) =>
+const Toolbar = props => (
   <div>
     <Slot name="Toolbar.Item" />
   </div>
+);
 
 export default Toolbar;
 
-Toolbar.Item = (props) =>
+Toolbar.Item = props => (
   <Fill name="Toolbar.Item">
-    <button>{ props.label }</button>
+    <button>{props.label}</button>
   </Fill>
+);
 ```
 
-```
+```javascript
 // Feature.js
 import React from 'react';
 import Toolbar from './Toolbar';
@@ -57,7 +59,7 @@ import Toolbar from './Toolbar';
 const Feature = () => <Toolbar.Item label="My Feature!" />;
 ```
 
-```
+```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from '@blackbox-vision/react-slot-fill';
@@ -67,16 +69,14 @@ import Feature from './Feature';
 
 import { Provider } from 'react-slot-fill';
 
-const App = () =>
+const App = () => (
   <Provider>
     <Toolbar />
     <Feature />
   </Provider>
-
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
 );
+
+ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
 ## Props
