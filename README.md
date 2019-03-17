@@ -1,4 +1,4 @@
-# React Slot and Fill [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+# React Slot and Fill [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT) [![npm version](https://badge.fury.io/js/%40blackbox-vision%2Freact-slot-fill.svg)](https://badge.fury.io/js/%40blackbox-vision%2Freact-slot-fill)
 
 React Slot and Fill pattern implementation made with React.createContext API.
 
@@ -28,7 +28,7 @@ yarn add @blackbox-vision/react-slot-fill
 
 ## TODO
 
-- [ ] Support for passing props from Fill to Slot.
+- [x] Support for passing props from Fill to Slot.
 - [ ] Support for multiple Fill for one Slot.
 
 ## Issues
