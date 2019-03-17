@@ -37,7 +37,7 @@ If you found a bug, or you have an answer, or whatever. Please, open an [issue](
 
 ## Contributing
 
-Of course, if you see something that you want to upgrade from this library, or a bug that needs to be solved, **PRs are welcome!**
+If you want to contribute to this project see [contributing](https://github.com/BlackBoxVision/react-slot-fill/blob/master/CONTRIBUTING.md) for more information.
 
 ## License
 
