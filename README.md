@@ -60,6 +60,7 @@ const Feature = () => <Toolbar.Item label="My Feature!" />;
 ```
 
 ```javascript
+// App.js
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from '@blackbox-vision/react-slot-fill';
