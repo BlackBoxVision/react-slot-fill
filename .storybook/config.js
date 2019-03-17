@@ -1,4 +1,5 @@
-import { addParameters, configure } from '@storybook/react';
+import { withInfo } from '@storybook/addon-info';
+import { addDecorator, addParameters, configure } from '@storybook/react';
 import { themes } from '@storybook/theming';
 
 addParameters({
@@ -7,6 +8,8 @@ addParameters({
     theme: themes.light,
   },
 });
+
+addDecorator(withInfo({ inline: true, header: false }));
 
 const req = require.context('../stories', true, /.stories.tsx$/);
 function loadStories() {

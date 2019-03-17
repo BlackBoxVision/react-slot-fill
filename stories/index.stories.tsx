@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/react';
 import React from 'react';
 import { Fill, Provider, Slot } from '../src';
 
-const SlotFillExample = () => (
+storiesOf('Slot-Fill', module).add('Slot-Fill Demo', () => (
   <div
     style={{
       width: '100vw',
@@ -41,6 +41,4 @@ const SlotFillExample = () => (
       <Slot name="green-box" />
     </Provider>
   </div>
-);
-
-storiesOf('Slot-Fill', module).add('Slot-Fill Demo', () => <SlotFillExample />);
+));
