@@ -2,7 +2,7 @@ import React from 'react';
 import { SlotFillContext } from '../../context';
 
 export interface SlotProps {
-  slotId: string;
+  name: string;
 }
 
 class Slot extends React.Component<SlotProps> {
@@ -15,10 +15,10 @@ class Slot extends React.Component<SlotProps> {
   constructor(props, context) {
     super(props, context);
 
-    context.subscribe(props.slotId, slotIndex => {
+    context.subscribe(props.name, slotIndex => {
       console.warn(
-        `Slot: Calling suscribe for slotIndex ${slotIndex}, where slotId is ${
-          props.slotId
+        `Slot: Calling suscribe for slotIndex ${slotIndex}, where name is ${
+          props.name
         }`
       );
 
@@ -28,7 +28,7 @@ class Slot extends React.Component<SlotProps> {
   }
 
   componentWillUnmount() {
-    const { slotId } = this.props;
+    const { name } = this.props;
 
     if (!this.context) {
       console.warn(
@@ -38,7 +38,7 @@ class Slot extends React.Component<SlotProps> {
     }
 
     if (this.slotIndex) {
-      this.context.unsubscribe(slotId, this.slotIndex);
+      this.context.unsubscribe(name, this.slotIndex);
     }
   }
 
@@ -50,12 +50,12 @@ class Slot extends React.Component<SlotProps> {
       return false;
     }
 
-    if (!this.props.slotId) {
+    if (!this.props.name) {
       console.warn(`Slot: You forget to pass id to <Slot>`);
       return false;
     }
 
-    const renderCallback = this.context.getFillForSlot(this.props.slotId);
+    const renderCallback = this.context.getFillForSlot(this.props.name);
 
     return renderCallback();
   }

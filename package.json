@@ -11,7 +11,9 @@
     "clean": "rimraf pkg",
     "publish": "pack publish",
     "build": "npm run clean && pack build",
-    "test": "jest --passWithNoTests -- -u"
+    "test": "jest --passWithNoTests -- -u",
+    "storybook": "start-storybook -p 6007",
+    "build-storybook": "build-storybook"
   },
   "@pika/pack": {
     "pipeline": [
@@ -72,6 +74,7 @@
   },
   "homepage": "https://github.com/BlackBoxVision/react-slot-and-fill#readme",
   "devDependencies": {
+    "@babel/core": "^7.3.4",
     "@babel/plugin-proposal-class-properties": "^7.3.4",
     "@babel/plugin-proposal-object-rest-spread": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
@@ -82,8 +85,14 @@
     "@pika/plugin-build-types": "^0.3.14",
     "@pika/plugin-build-web": "^0.3.14",
     "@pika/plugin-standard-pkg": "^0.3.14",
+    "@storybook/addon-actions": "^5.0.1",
+    "@storybook/addon-links": "^5.0.1",
+    "@storybook/addons": "^5.0.1",
+    "@storybook/react": "^5.0.1",
+    "@storybook/theming": "^5.0.1",
     "@types/react": "^16.8.8",
     "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.5",
     "chai": "^4.1.2",
     "cross-env": "^5.2.0",
     "eslint": "^5.15.2",
@@ -118,5 +127,6 @@
       "eslint --fix --ext .ts,.tsx,.js",
       "git add"
     ]
-  }
+  },
+  "dependencies": {}
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { SlotFillContext } from '../../context';
 
 export interface FillProps {
-  slotId: string;
+  name: string;
 }
 
 class Fill extends React.Component<FillProps> {
@@ -19,7 +19,7 @@ class Fill extends React.Component<FillProps> {
       );
       return;
     } else {
-      if (!props.slotId) {
+      if (!props.name) {
         console.warn(`Fill: id is null or undefined.`);
         return;
       }
@@ -29,7 +29,7 @@ class Fill extends React.Component<FillProps> {
         return;
       }
 
-      context.setFillForSlot(props.slotId, () => props.children);
+      context.setFillForSlot(props.name, () => props.children);
     }
   }
 
