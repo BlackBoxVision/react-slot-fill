@@ -1,6 +1,6 @@
-# React Slot and Fill [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT) [![npm version](https://badge.fury.io/js/%40blackbox-vision%2Freact-slot-fill.svg)](https://badge.fury.io/js/%40blackbox-vision%2Freact-slot-fill)
+# React Slot and Fill  [![npm version](https://badge.fury.io/js/%40blackbox-vision%2Freact-slot-fill.svg)](https://badge.fury.io/js/%40blackbox-vision%2Freact-slot-fill)  [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT) [![Known Vulnerabilities](https://snyk.io/test/github/blackboxvision/react-slot-fill/badge.svg)](https://snyk.io/test/github/blackboxvision/react-slot-fill)
 
-React Slot and Fill pattern implementation made with React.createContext API.
+:rocket: React Slot and Fill pattern implementation made with React.createContext API.
 
 ## Install
 
@@ -37,8 +37,8 @@ If you found a bug, or you have an answer, or whatever. Please, open an [issue](
 
 ## Contributing
 
-Of course, if you see something that you want to upgrade from this library, or a bug that needs to be solved, PRs are welcome!
+Of course, if you see something that you want to upgrade from this library, or a bug that needs to be solved, **PRs are welcome!**
 
 ## License
 
-Distributed under the MIT license. See [LICENSE](https://github.com/BlackBoxVision/react-slot-fill/blob/master/LICENSE) for more information.
+Distributed under the **MIT license**. See [LICENSE](https://github.com/BlackBoxVision/react-slot-fill/blob/master/LICENSE) for more information.
