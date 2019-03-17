@@ -66,14 +66,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BlackBoxVision/react-slot-and-fill.git"
+    "url": "git+https://github.com/BlackBoxVision/react-slot-fill.git"
   },
   "author": "Jonatan E. Salas <jonatan.salas@blackbox-vision.tech>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/BlackBoxVision/react-slot-and-fill/issues"
+    "url": "https://github.com/BlackBoxVision/react-slot-fill/issues"
   },
-  "homepage": "https://github.com/BlackBoxVision/react-slot-and-fill#readme",
+  "homepage": "https://github.com/BlackBoxVision/react-slot-fill#readme",
   "peerDependencies": {
     "react": "^16.3.1"
   },
