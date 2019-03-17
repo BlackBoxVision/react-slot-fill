@@ -1,0 +1,9 @@
+diff a/.github/ISSUE_TEMPLATE/3.Example_Bug_report.md b/.github/ISSUE_TEMPLATE/3.Example_Bug_report.md	(rejected hunks)
+@@ -28,3 +34,4 @@ If applicable, add screenshots to help explain your problem.
+- - OS: [e.g. macOS, Windows]
+- - Browser (if applies) [e.g. chrome, safari]
+- - Version of React-Slot-Fill: [e.g. 1.4.0]
++
++- OS: [e.g. macOS, Windows]
++- Browser (if applies) [e.g. chrome, safari]
++- Version of React-Slot-Fill: [e.g. 1.4.0]
