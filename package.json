@@ -7,7 +7,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
-    "link": "npm run build && npm link pkg",
     "clean": "rimraf pkg",
     "publish": "pack publish",
     "build": "npm run clean && pack build",
