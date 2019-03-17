@@ -42,21 +42,28 @@ class Slot extends React.Component<SlotProps> {
   }
 
   render() {
-    if (!this.props.ctx || !this.props.ctx.hasOwnProperty('getFillForSlot')) {
+    const { ctx, name, ...rest } = this.props;
+
+    if (!ctx || !ctx.hasOwnProperty('getFillForSlot')) {
       console.warn(
         `Slot: context is null or undefined. You need to wrap your App with <SlotAndFillProvider>.`
       );
       return false;
     }
 
-    if (!this.props.name) {
+    if (!name) {
       console.warn(`Slot: You forget to pass id to <Slot>`);
       return false;
     }
 
-    const renderCallback = this.props.ctx.getFillForSlot(this.props.name);
+    const renderCallback = ctx.getFillForSlot(name);
+    const children = renderCallback();
 
-    return renderCallback();
+    if (!children) {
+      return false;
+    } else {
+      return React.cloneElement(children, rest);
+    }
   }
 }
 

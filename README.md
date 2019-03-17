@@ -22,12 +22,13 @@ yarn add @blackbox-vision/react-slot-fill
 
 `Slot` and `Fill` components use the same props, which are the following ones:
 
-| Properties | Types  | Default Value | Description                      |
-| ---------- | ------ | ------------- | -------------------------------- |
-| slotId     | string | none          | Determines the name of the slot. |
+| Properties | Types  | Default Value | Description                           |
+| ---------- | ------ | ------------- | ------------------------------------- |
+| name       | string | none          | Determines the name of the Slot/Fill. |
 
 ## TODO
 
+- [ ] Support for passing props from Fill to Slot.
 - [ ] Support for multiple Fill for one Slot.
 
 ## Issues
