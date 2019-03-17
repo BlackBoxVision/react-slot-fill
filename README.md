@@ -33,7 +33,7 @@ yarn add @blackbox-vision/react-slot-fill
 
 ## Issues
 
-If you found a bug, or you have an answer, or whatever. Please, open an [issue](https://github.com/BlackBoxVision/react-slot-fill/issues/new). We will do our best to fix it.
+Please, open an [issue](https://github.com/BlackBoxVision/react-slot-fill/issues) following one of the issues templates. We will do our best to fix them.
 
 ## Contributing
 
