@@ -1,6 +1,6 @@
 # React Slot and Fill  [![npm version](https://badge.fury.io/js/%40blackbox-vision%2Freact-slot-fill.svg)](https://badge.fury.io/js/%40blackbox-vision%2Freact-slot-fill)  [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT) [![Known Vulnerabilities](https://snyk.io/test/github/blackboxvision/react-slot-fill/badge.svg)](https://snyk.io/test/github/blackboxvision/react-slot-fill)
 
-:rocket: React Slot and Fill pattern implementation made with React.createContext API.
+:rocket: React Slot and Fill pattern implementation made with React.createContext API. Check out the [demo](https://blackboxvision.github.io/react-slot-and-fill/).
 
 ## Install
 
