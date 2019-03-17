@@ -25,7 +25,7 @@ If you need to render a component from somepart of the DOM tree, but it needs to
 This library is very similar to [`react-slot-fill`](https://github.com/camwest/react-slot-fill), but we solve two particular issues:
 
 - Support for React.createContext, this library is intended to use with React >= 16.3.1.
-- If a Fill is declared after an Slot, it can render properly.
+- If a Fill is declared after a Slot, it can render properly, which [`react-slot-fill`](https://github.com/camwest/react-slot-fill) doesn't support.
 
 ## Usage
 
