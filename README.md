@@ -68,8 +68,6 @@ import { Provider } from '@blackbox-vision/react-slot-fill';
 import Toolbar from './Toolbar';
 import Feature from './Feature';
 
-import { Provider } from 'react-slot-fill';
-
 const App = () => (
   <Provider>
     <Toolbar />
