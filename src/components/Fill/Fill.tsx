@@ -4,12 +4,13 @@ import { SlotFillContextProps, withContext } from '../../context';
 export interface FillProps {
   name: string;
   ctx: SlotFillContextProps;
+  children: React.ReactChildren;
 }
 
-class Fill extends React.Component<FillProps> {
+export class Fill extends React.Component<FillProps> {
   static displayName = 'Fill';
 
-  constructor(props) {
+  constructor(props: FillProps) {
     super(props);
 
     if (!props.ctx || !props.ctx.hasOwnProperty('setFillForSlot')) {

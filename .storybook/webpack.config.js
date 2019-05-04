@@ -1,20 +1,17 @@
-module.exports = {
-  module: {
-    rules: [
+module.exports = async ({ config }) => {
+  config.module.rules.push({
+    test: /\.(ts|tsx)$/,
+    use: [
       {
-        test: /\.(ts|tsx)$/,
-        loader: require.resolve('babel-loader'),
-        options: {
-          presets: [['react-app', { flow: false, typescript: true }]],
-          plugins: [
-            '@babel/plugin-proposal-object-rest-spread',
-            '@babel/plugin-proposal-class-properties',
-          ],
-        },
+        loader: require.resolve('awesome-typescript-loader'),
+      },
+      {
+        loader: require.resolve('react-docgen-typescript-loader'),
       },
     ],
-  },
-  resolve: {
-    extensions: ['.ts', '.tsx'],
-  },
+  });
+
+  config.resolve.extensions.push('.ts', '.tsx');
+
+  return config;
 };

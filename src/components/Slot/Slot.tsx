@@ -4,17 +4,18 @@ import { SlotFillContextProps, withContext } from '../../context';
 export interface SlotProps {
   name: string;
   ctx: SlotFillContextProps;
+  children: React.ReactChildren;
 }
 
-class Slot extends React.Component<SlotProps> {
+export class Slot extends React.Component<SlotProps> {
   static displayName = 'Slot';
 
-  slotIndex = null;
+  slotIndex: number | null = null;
 
-  constructor(props) {
+  constructor(props: SlotProps) {
     super(props);
 
-    props.ctx.subscribe(props.name, slotIndex => {
+    props.ctx.subscribe(props.name, (slotIndex: number) => {
       console.warn(
         `Slot: Calling suscribe for slotIndex ${slotIndex}, where name is ${
           props.name

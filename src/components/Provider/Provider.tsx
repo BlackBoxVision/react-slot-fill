@@ -2,16 +2,16 @@ import React from 'react';
 import { SlotFillContext, SlotFillManager } from '../../context';
 
 export interface SlotFillProviderState {
-  context: any;
+  context: SlotFillManager;
 }
 
 export interface SlotFillProviderProps {
   children?: any;
 }
 
-class SlotFillProvider extends React.Component<
-  SlotFillProviderState,
-  SlotFillProviderProps
+export class SlotFillProvider extends React.Component<
+  SlotFillProviderProps,
+  SlotFillProviderState
 > {
   static displayName = 'SlotFillProvider';
 
@@ -19,7 +19,7 @@ class SlotFillProvider extends React.Component<
     children: [],
   };
 
-  state = {
+  state: SlotFillProviderState = {
     context: new SlotFillManager(),
   };
 

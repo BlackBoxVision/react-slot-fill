@@ -5,11 +5,13 @@ const noopRenderCallback = () => {
   return false;
 };
 
+export interface SlotFillManager {}
+
 export class SlotFillManager {
   slotsAndFills = new Map();
-  subscribers = [];
+  subscribers: Array<{ slotId: string; callback: any }> = [];
 
-  setFillForSlot = (slotId, renderCallback = noopRenderCallback) => {
+  setFillForSlot = (slotId: string, renderCallback = noopRenderCallback) => {
     const fillForSlot = this.slotsAndFills.get(slotId);
 
     if (fillForSlot) {
@@ -23,7 +25,7 @@ export class SlotFillManager {
     this.notify(slotId);
   };
 
-  getFillForSlot = slotId => {
+  getFillForSlot = (slotId: string) => {
     const fillById = this.slotsAndFills.get(slotId);
 
     if (!fillById) {
@@ -36,21 +38,23 @@ export class SlotFillManager {
     return fillById;
   };
 
-  subscribe = (slotId, callback) => {
+  subscribe = (slotId: string, callback: any) => {
     console.warn(`SlotAndFillManager: Subscribe callback for slotId ${slotId}`);
     this.subscribers.push({ slotId, callback });
   };
 
-  unsubscribe = (slotId, slotIndex) => {
+  unsubscribe = (slotId: string, slotIndex: number) => {
     console.warn(
       `SlotAndFillManager: Unsubscribe callback for slotId ${slotId} and slotIndex ${slotIndex}`
     );
+
     this.subscribers = this.subscribers.filter(
-      (subscriber, index) => subscriber.slotId === slotId && index === slotIndex
+      (subscriber: any, index: number) =>
+        subscriber.slotId === slotId && index === slotIndex
     );
   };
 
-  notify = slotId => {
+  notify = (slotId: string) => {
     console.warn(`SlotAndFillManager: Notify subscribers for slotId ${slotId}`);
     console.warn(
       `SlotAndFillManager: Current amount of subscribers is ${
@@ -58,7 +62,7 @@ export class SlotFillManager {
       }`
     );
 
-    this.subscribers.forEach((subscriber, index) => {
+    this.subscribers.forEach((subscriber: any, index: number) => {
       if (subscriber.slotId !== slotId) {
         console.warn(
           `SlotAndFillManager: Subscriber isn't matching slotId value`
@@ -71,10 +75,10 @@ export class SlotFillManager {
   };
 }
 
-export const SlotFillContext = React.createContext(null);
+export const SlotFillContext = React.createContext({});
 
-export const withContext = Component => {
-  const WrappedComponent = props => (
+export const withContext = (Component: any) => {
+  const WrappedComponent = (props: any) => (
     <SlotFillContext.Consumer>
       {ctx => <Component {...props} ctx={ctx} />}
     </SlotFillContext.Consumer>
@@ -86,8 +90,8 @@ export const withContext = Component => {
 };
 
 export interface SlotFillContextProps {
+  suscribers: Array<{ slotId: string; callback: any }>;
   slotsAndFills: Map<any, any>;
-  suscribers: Array<any>;
   setFillForSlot: Function;
   getFillForSlot: Function;
   unsubscribe: Function;

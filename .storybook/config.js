@@ -4,8 +4,10 @@ import { themes } from '@storybook/theming';
 
 addParameters({
   options: {
-    brandTitle: '@blackbox-visiosn/react-slot-fill',
+    name: 'React Slot/Fill',
     theme: themes.light,
+    showAddonPanel: false,
+    addonPanelInRight: true,
   },
 });
 

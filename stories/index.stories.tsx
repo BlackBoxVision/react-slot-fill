@@ -21,6 +21,9 @@ storiesOf('Slot-Fill', module).add('Slot-Fill Demo', () => (
             height: 300,
             backgroundColor: 'red',
             color: 'white',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
           }}
         >
           Red Box
@@ -33,6 +36,9 @@ storiesOf('Slot-Fill', module).add('Slot-Fill Demo', () => (
             height: 300,
             backgroundColor: 'green',
             color: 'white',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
           }}
         >
           Green Box
