@@ -36,7 +36,7 @@ The usage is really simple:
 import React from 'react';
 import { Slot, Fill } from '@blackbox-vision/react-slot-fill';
 
-const Toolbar = props => (
+const Toolbar = (props) => (
   <div>
     <Slot name="Toolbar.Item" />
   </div>
@@ -44,7 +44,7 @@ const Toolbar = props => (
 
 export default Toolbar;
 
-Toolbar.Item = props => (
+Toolbar.Item = (props) => (
   <Fill name="Toolbar.Item">
     <button>{props.label}</button>
   </Fill>
@@ -69,7 +69,7 @@ import Toolbar from './Toolbar';
 import Feature from './Feature';
 
 const App = () => (
-  <Provider>
+  <Provider debug={true || false}>
     <Toolbar />
     <Feature />
   </Provider>
@@ -82,9 +82,10 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 `Slot` and `Fill` components use the same props, which are the following ones:
 
-| Properties | Types  | Default Value | Description                           |
-| ---------- | ------ | ------------- | ------------------------------------- |
-| name       | string | none          | Determines the name of the Slot/Fill. |
+| Properties | Types   | Default Value | Description                                     |
+| ---------- | ------- | ------------- | ----------------------------------------------- |
+| name       | string  | none          | Determines the name of the Slot/Fill.           |
+| debug      | boolean | false         | Enable logging to detect issues with Slot/Fill. |
 
 ## TODO
 
