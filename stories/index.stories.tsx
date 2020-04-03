@@ -12,7 +12,7 @@ storiesOf('Slot-Fill', module).add('Slot-Fill Demo', () => (
       justifyContent: 'center',
     }}
   >
-    <Provider>
+    <Provider debug>
       <Slot name="red-box" />
       <Fill name="red-box">
         <div
