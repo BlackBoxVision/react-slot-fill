@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useContext, useRef } from 'react';
 
 import { SlotFillContext } from '../Provider';
 
@@ -12,7 +12,7 @@ export const Slot: React.FunctionComponent<SlotProps> = ({
   children,
   ...rest
 }) => {
-  const [slotIndex, setSlotIndex] = useState<number | null>(null);
+  const slotIndexRef = useRef<any>(null);
   const { debug, subscribe, unsubscribe, getFillForSlot } = useContext(
     SlotFillContext
   );
@@ -24,13 +24,15 @@ export const Slot: React.FunctionComponent<SlotProps> = ({
           `Slot: Calling suscribe for slotIndex ${slotIdx}, where name is ${name}`
         );
 
-      setSlotIndex(slotIdx);
+      slotIndexRef.current = slotIdx;
     });
 
     return function willUnmount() {
-      slotIndex && unsubscribe(name, slotIndex);
+      if (slotIndexRef.current) {
+        unsubscribe(name, slotIndexRef.current);
+      }
     };
-  }, [slotIndex, name]);
+  }, [name]);
 
   if (!name) {
     debug && console.warn(`Slot: You forget to pass id to <Slot>`);
